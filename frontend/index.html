@@ -1,0 +1,57 @@
+# frontend/index.html
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Resumidor de Texto</title>
+  <style>
+    #drop-area {
+      border: 2px dashed #ccc;
+      padding: 20px;
+      text-align: center;
+      margin: 50px auto;
+      width: 300px;
+    }
+    #summary {
+      white-space: pre-wrap;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Arraste um arquivo .txt aqui</h2>
+  <div id="drop-area">Solte o arquivo aqui</div>
+  <div id="summary"></div>
+
+  <script>
+    const dropArea = document.getElementById('drop-area');
+    const summaryDiv = document.getElementById('summary');
+
+    dropArea.addEventListener('dragover', e => {
+      e.preventDefault();
+      dropArea.style.borderColor = 'blue';
+    });
+
+    dropArea.addEventListener('dragleave', () => {
+      dropArea.style.borderColor = '#ccc';
+    });
+
+    dropArea.addEventListener('drop', async e => {
+      e.preventDefault();
+      dropArea.style.borderColor = '#ccc';
+      const file = e.dataTransfer.files[0];
+
+      const formData = new FormData();
+      formData.append('file', file);
+
+      const res = await fetch('http://localhost:5000/upload', {
+        method: 'POST',
+        body: formData
+      });
+
+      const data = await res.json();
+      summaryDiv.textContent = data.summary || data.error;
+    });
+  </script>
+</body>
+</html
