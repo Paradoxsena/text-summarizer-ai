@@ -1,0 +1,9 @@
+# Ignorar o ambiente virtual
+venv/
+
+# Ignorar arquivos compilados
+__pycache__/
+*.pyc
+
+# Arquivo de variáveis sensíveis
+backend/.env
