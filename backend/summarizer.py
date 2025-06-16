@@ -12,7 +12,7 @@ def summarize_text(text):
         response = co.summarize(
             text=text,
             length='medium',         # ou 'short', 'long'
-            format='paragraph',      # ou 'bullets'
+            format='bullets',      # ou 'bullets'
             model='command',         # modelo padrão
             additional_command='Resuma o seguinte texto de forma clara e objetiva.'
         )
