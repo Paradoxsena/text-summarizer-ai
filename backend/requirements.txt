@@ -3,3 +3,4 @@ flask
 flask-cors
 python-dotenv
 cohere
+deep_translator

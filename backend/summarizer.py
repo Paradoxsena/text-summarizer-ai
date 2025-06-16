@@ -1,4 +1,4 @@
-# backend/summarizer.py
+from deep_translator import GoogleTranslator
 import cohere
 import os
 from dotenv import load_dotenv
@@ -16,7 +16,9 @@ def summarize_text(text):
             model='command',         # modelo padrão
             additional_command='Resuma o seguinte texto de forma clara e objetiva.'
         )
-        return response.summary
+        translated = GoogleTranslator(source='auto', target='pt').translate(response.summary)
+        return translated
+
 
     except Exception as e:
         print(f"[Erro ao resumir o texto] → {e}")
