@@ -4,3 +4,4 @@ flask-cors
 python-dotenv
 cohere
 deep_translator
+python-docx
