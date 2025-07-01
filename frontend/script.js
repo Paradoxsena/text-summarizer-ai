@@ -1,63 +1,62 @@
-const dropArea = document.getElementById("drop-area");
-const summaryDiv = document.getElementById("summary");
-const summaryContainer = document.getElementById("summary-container");
-const loadingDiv = document.getElementById("loading");
+const dropArea = document.getElementById('drop-area');
+const summaryDiv = document.getElementById('summary');
+const loader = document.getElementById('loader');
+const clearBtn = document.getElementById('clear-btn');
+const downloadBtn = document.getElementById('download-btn');
 
-dropArea.addEventListener("dragover", (e) => {
+dropArea.addEventListener('dragover', e => {
   e.preventDefault();
-  dropArea.style.borderColor = "#4b47d1";
-  dropArea.style.backgroundColor = "#eef0ff";
+  dropArea.style.borderColor = 'blue';
 });
 
-dropArea.addEventListener("dragleave", () => {
-  dropArea.style.borderColor = "#6c63ff";
-  dropArea.style.backgroundColor = "#f9f9ff";
+dropArea.addEventListener('dragleave', () => {
+  dropArea.style.borderColor = '#ccc';
 });
 
-dropArea.addEventListener("drop", async (e) => {
+dropArea.addEventListener('drop', async e => {
   e.preventDefault();
-  dropArea.style.borderColor = "#6c63ff";
-  dropArea.style.backgroundColor = "#f9f9ff";
-
+  dropArea.style.borderColor = '#ccc';
   const file = e.dataTransfer.files[0];
-  if (!file || !file.name.endsWith(".txt")) {
-    alert("Por favor, envie apenas arquivos .txt");
+
+  if (!file.name.endsWith('.txt') && !file.name.endsWith('.docx')) {
+    summaryDiv.textContent = 'Apenas arquivos .txt ou .docx são suportados.';
     return;
   }
 
   const formData = new FormData();
-  formData.append("file", file);
+  formData.append('file', file);
 
-  loadingDiv.style.display = "block";
-  summaryContainer.style.display = "none";
+  loader.classList.remove('hidden');
+  summaryDiv.textContent = '';
 
   try {
-    const res = await fetch("http://localhost:5000/upload", {
-      method: "POST",
-      body: formData,
+    const res = await fetch('http://localhost:5000/upload', {
+      method: 'POST',
+      body: formData
     });
 
     const data = await res.json();
     summaryDiv.textContent = data.summary || data.error;
-    summaryContainer.style.display = "block";
   } catch (error) {
-    summaryDiv.textContent = "Erro ao conectar com o servidor.";
-    summaryContainer.style.display = "block";
+    summaryDiv.textContent = 'Erro ao processar o arquivo.';
   } finally {
-    loadingDiv.style.display = "none";
+    loader.classList.add('hidden');
   }
 });
 
-function clearSummary() {
-  summaryDiv.textContent = "";
-  summaryContainer.style.display = "none";
-}
+clearBtn.addEventListener('click', () => {
+  summaryDiv.textContent = '';
+});
 
-function downloadSummary() {
+downloadBtn.addEventListener('click', () => {
   const text = summaryDiv.textContent;
-  const blob = new Blob([text], { type: "text/plain;charset=utf-8" });
-  const link = document.createElement("a");
-  link.download = "resumo.txt";
-  link.href = window.URL.createObjectURL(blob);
+  if (!text) return;
+
+  const blob = new Blob([text], { type: 'text/plain' });
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = 'resumo.txt';
   link.click();
-}
+});
+
+

@@ -1,28 +1,44 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="style.css">
-  <title>Resumidor de Texto</title>
-</head>
-<body>
-  <h2>Arraste um arquivo .txt aqui</h2>
-
-  <div id="drop-area">
-    <p>Solte o arquivo aqui</p>
-  </div>
-
-  <div id="loading" style="display: none;">Resumindo, por favor aguarde...</div>
-
-  <div id="summary-container" style="display: none;">
-    <h3>Resumo:</h3>
-    <div id="summary"></div>
-    <div id="buttons">
-      <button onclick="clearSummary()">Limpar</button>
-      <button onclick="downloadSummary()">Baixar .txt</button>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
-</body>
-</html
+  <head>
+    <meta charset="UTF-8" />
+    <title>Resumidor de Texto</title>
+    <link rel="stylesheet" href="style.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <div class="mae">
+        <h1 id="titulo">Resumo automático</h1>
+        <div class="pai">
+          <div class="resumo2">
+            <p id="drop">Jogue o documento suportado aqui</p>
+            <div id="drop-area">
+              <div class="imagens">
+                <div class="img1">
+                  <img src="https://i.postimg.cc/1XhK1mM6/document.png" alt="" width="60px">
+                  <p>.txt</p>
+                </div>
+                <p>&</p>
+                <div class="img2">
+                  <img src="https://i.postimg.cc/QtWqz9gh/file-word.png" alt="" width="60px">
+                  <p>.docx</p>
+                </div>
+              </div>
+            </div>
+            <div id="loader" class="hidden"></div>
+          </div>
+          <div class="resumo1">
+            <p id="drop">Resumo</p>
+            <div id="summary"></div>
+          </div>
+          <div class="button-group">
+            <button id="clear-btn"><strong>Limpar</strong></button>
+            <button id="download-btn"><strong>Baixar Resumo</strong></button>
+          </div>
+        </div>
+      </div>
+    </header>
+    <script src="script.js"></script>
+  </body>
+</html>

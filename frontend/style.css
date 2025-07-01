@@ -1,44 +1,182 @@
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f4f6f8;
-  color: #333;
+
+/*===== Cabeçalho =====*/
+
+*{
   margin: 0;
   padding: 0;
-  text-align: center;
+  font-family: 'inter', 'sans-serif';
 }
 
-h2 {
+
+
+.mae{
+  background-color: rgb(255, 255, 255);
+  border-radius: 15px;
+  margin-top: 20px;
+  padding: 30px;
+
+}
+
+header{
+  background-color: rgb(255, 255, 255, 0.5);
+  border-radius: 15px;
   margin-top: 50px;
-  color: #2c3e50;
+  padding: 50px;
 }
 
-#drop-area {
-  border: 2px dashed #3498db;
-  background-color: #ecf0f1;
-  padding: 40px;
-  margin: 30px auto;
-  width: 400px;
-  border-radius: 10px;
-  transition: border-color 0.3s ease;
+
+
+/*===== Cabeçalho =====*/
+
+/*===== Action =====*/
+
+#titulo{
+  display: flex;
+  align-items: end;
+  margin-left: 30px;
+  font-size: 55px;
 }
+
+.pai{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.resumo1{
+  align-items: end;
+}
+
+#drop{
+  margin: auto;
+  margin-top: 20px;
+  font-size: 25px;
+  font-weight: bold;
+}
+#drop-area {
+  background-color: #CEEEEF;
+  border: 3px dashed #000000;
+  font-size: 25px;
+  padding: 120px;
+  text-align: center;
+  align-content: center;
+  margin: 50px;
+  width: 300px;
+  height: 117px;
+  background-color: #CEEEEF;
+  transition: border-color 0.3s;
+}
+
+.imagens{
+  display: flex;
+  justify-content: center;
+}
+
+.imagens > p{
+  margin-top: 15px;
+  padding: 10px;
+  font-weight: bold;
+  color: #000000;
+}
+
+
+.img1{
+  padding: 10px;
+}
+
+.img2{
+  padding: 10px;
+}
+
+.img1 > p{
+  font-weight: bold;
+  color: #000000;
+}
+
+.img2 > p{
+  font-weight: bold;
+  color: #000000;
+}
+
 
 #drop-area:hover {
-  border-color: #2980b9;
+  border-color: #666;
 }
 
 #summary {
-  margin: 30px auto;
+  width: 500px;
+  height: 317px;
   padding: 20px;
-  width: 80%;
-  max-width: 600px;
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin: 50px auto;
+  border: 3px solid #000000;
+  border-radius: 10px;
+  background-color: #fff;
+  overflow-y: auto;
+  text-align: justify;
   white-space: pre-wrap;
-  text-align: left;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.loading {
-  font-style: italic;
-  color: #7f8c8d;
+
+
+
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #eef1f5;
+  text-align: center;
+  padding: 40px;
+  color: #333;
+  background: url(https://static.vecteezy.com/system/resources/previews/022/857/454/non_2x/flat-minimalistic-design-panorama-of-a-mountain-landscape-easy-to-change-colors-vector.jpg) center/150%;
+  
 }
+
+h2 {
+  margin-bottom: 20px;
+}
+
+#loader {
+  border: 6px solid #0e8fba;
+  border-top: 6px solid #4315da;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.hidden {
+  display: none;
+}
+
+.button-group {
+  margin-top: 10px;
+  margin-left: 650px;
+}
+
+
+.button-group button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #CEEEEF;
+  color: rgb(0, 0, 0);
+  transition: background-color 0.3s;
+  border: solid 1px black;
+}
+
+.button-group button:hover {
+  background-color: #a4a7a8;
+}
+
+/*===== Action =====*/

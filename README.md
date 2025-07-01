@@ -2,7 +2,7 @@
 ## Text Summarizer AI
 
 ### Descrição
-Projeto simples em Flask + Corehere para resumir arquivos .txt enviados pelo usuário via drag-and-drop.
+Projeto simples em Flask + Cohere para resumir arquivos `.txt` e `.docx` enviados pelo usuário via drag-and-drop.
 
 ### Como usar
 ```bash
